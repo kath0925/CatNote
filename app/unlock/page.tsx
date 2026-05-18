@@ -1,4 +1,4 @@
-import { SiteHeader } from "@/src/components/SiteHeader";
+import { SiteHeader } from "@/components/SiteHeader";
 
 const unlockOptions = [
   "Give feedback",
@@ -23,11 +23,11 @@ export default function UnlockPage() {
             Unlock
           </p>
 
-          <h1 className="text-5xl font-bold tracking-tight">
+          <h1 className="text-4xl font-bold tracking-tight">
             Unlock more revision notes.
           </h1>
 
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-neutral-600">
+          <p className="mt-6 max-w-2xl text-base leading-7 text-neutral-600">
             第 6 篇之后的内容暂时不设置付费入口。你可以通过反馈、分享、加入学习群或贡献笔记来解锁更多内容。
           </p>
 

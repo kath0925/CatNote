@@ -1,5 +1,6 @@
 import { softwareEngineeringNotes } from "@/data/softwareEngineeringNotes";
-import { SiteHeader } from "@/src/components/SiteHeader";
+import NoteStatusBadge from "@/components/NoteStatusBadge";
+import { SiteHeader } from "@/components/SiteHeader";
 
 export default function SoftwareEngineeringPage() {
   return (
@@ -12,11 +13,11 @@ export default function SoftwareEngineeringPage() {
             Software Engineering Discipline and Practice
           </p>
 
-          <h1 className="max-w-3xl text-5xl font-bold tracking-tight">
+          <h1 className="max-w-3xl text-4xl font-bold tracking-tight">
             Course Notes
           </h1>
 
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-neutral-600">
+          <p className="mt-6 max-w-2xl text-base leading-7 text-neutral-600">
             按课程文件顺序整理的复习笔记。前 3 篇免费阅读，第 4–5 篇注册后阅读，第 6 篇之后通过反馈、分享、加群或贡献笔记解锁。
           </p>
         </section>
@@ -32,14 +33,12 @@ export default function SoftwareEngineeringPage() {
                 <p className="text-sm text-neutral-500">
                   Note {index + 1}
                 </p>
-                <h2 className="mt-1 text-xl font-semibold">
+                <h2 className="mt-1 text-lg font-semibold">
                   {note.title}
                 </h2>
               </div>
 
-              <span className="rounded-full border border-neutral-300 px-3 py-1 text-sm text-neutral-600">
-                {note.status}
-              </span>
+              <NoteStatusBadge status={note.status} />
             </a>
           ))}
         </section>

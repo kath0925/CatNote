@@ -1,4 +1,4 @@
-import { SiteHeader } from "@/src/components/SiteHeader";
+import { SiteHeader } from "@/components/SiteHeader";
 
 export default function Home() {
   return (
@@ -11,11 +11,11 @@ export default function Home() {
             from zero to freedom
           </p>
 
-          <h1 className="max-w-3xl text-5xl font-bold tracking-tight">
+          <h1 className="max-w-3xl text-4xl font-bold tracking-tight md:text-5xl">
             课程复习笔记
           </h1>
 
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-neutral-600">
+          <p className="mt-6 max-w-2xl text-base leading-7 text-neutral-600">
             CatNote 用英文标题和中文解释，帮助你从零基础理解课程重点、考试概念和答题思路。
           </p>
 
@@ -37,21 +37,21 @@ export default function Home() {
 
           <div className="mt-16 grid gap-4 md:grid-cols-3">
             <div className="rounded-2xl border border-neutral-200 bg-white p-5">
-              <h2 className="font-semibold">3 free notes</h2>
+              <h2 className="text-lg font-semibold">3 free notes</h2>
               <p className="mt-2 text-sm leading-6 text-neutral-600">
                 前 3 篇无需注册，直接阅读。
               </p>
             </div>
 
             <div className="rounded-2xl border border-neutral-200 bg-white p-5">
-              <h2 className="font-semibold">Register to continue</h2>
+              <h2 className="text-lg font-semibold">Register to continue</h2>
               <p className="mt-2 text-sm leading-6 text-neutral-600">
                 第 4–5 篇注册后阅读。
               </p>
             </div>
 
             <div className="rounded-2xl border border-neutral-200 bg-white p-5">
-              <h2 className="font-semibold">Unlock more</h2>
+              <h2 className="text-lg font-semibold">Unlock more</h2>
               <p className="mt-2 text-sm leading-6 text-neutral-600">
                 第 6 篇之后可通过反馈、分享、加群或贡献笔记解锁。
               </p>

@@ -2,19 +2,19 @@ export const softwareEngineeringNotes = [
   {
     id: "1",
     title: "Introduction",
-    status: "Free",
+    status: "Free Preview",
     access: "free",
   },
   {
     id: "2",
     title: "Agile Software Development",
-    status: "Free",
+    status: "Free Preview",
     access: "free",
   },
   {
     id: "3",
     title: "Requirements",
-    status: "Free",
+    status: "Free Preview",
     access: "free",
   },
   {

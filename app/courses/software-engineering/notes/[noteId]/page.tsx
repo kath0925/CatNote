@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
+import { noteContents } from "@/data/noteContents";
 import { softwareEngineeringNotes } from "@/data/softwareEngineeringNotes";
-import { SiteHeader } from "@/src/components/SiteHeader";
+import { SiteHeader } from "@/components/SiteHeader";
 
 export function generateStaticParams() {
   return softwareEngineeringNotes.map((note) => ({
@@ -15,6 +16,7 @@ export default async function NotePage({
 }) {
   const { noteId } = await params;
   const note = softwareEngineeringNotes.find((item) => item.id === noteId);
+  const content = noteContents[noteId as keyof typeof noteContents];
 
   if (!note) {
     notFound();
@@ -35,33 +37,69 @@ export default async function NotePage({
             Note {note.id} · {note.status}
           </p>
 
-          <h1 className="text-5xl font-bold tracking-tight">{note.title}</h1>
+          <h1 className="text-2xl font-bold tracking-tight md:text-3xl">
+            {note.title}
+          </h1>
 
           {note.access === "free" && (
-            <article className="mt-10 rounded-2xl border border-neutral-200 bg-white p-8">
-              <p className="text-lg leading-8 text-neutral-700">
-                这里将放置 {note.title} 的正式复习笔记内容。第一版先完成页面结构和访问规则，之后再逐篇填入笔记正文。
-              </p>
+            <article className="mt-10 rounded-2xl border border-neutral-200 bg-white p-6">
+              {content ? (
+                <div className="space-y-8">
+                  {content.sections.map((section) => (
+                    <section key={section.heading}>
+                      <h2 className="text-lg font-semibold">
+                        {section.heading}
+                      </h2>
 
-              <div className="mt-8 border-t border-neutral-200 pt-6">
-                <h2 className="text-xl font-semibold">Revision structure</h2>
-                <ul className="mt-4 list-disc space-y-2 pl-5 text-neutral-700">
-                  <li>Key concepts</li>
-                  <li>Exam focus</li>
-                  <li>Answer template</li>
-                  <li>Practice questions</li>
-                </ul>
-              </div>
+                      <div className="mt-4 space-y-4 text-sm leading-7 text-neutral-700">
+                        {section.body.map((paragraph) => (
+                          <p key={paragraph}>{paragraph}</p>
+                        ))}
+                      </div>
+
+                      {"note" in section ? (
+                        <p className="mt-3 text-sm leading-6 text-neutral-500">
+                          {section.note}
+                        </p>
+                      ) : null}
+                    </section>
+                  ))}
+
+                  <iframe
+                    src="/notes/introduction.pdf"
+                    className="mt-8 h-[800px] w-full rounded-2xl border border-neutral-200"
+                    title="Introduction PDF"
+                  />
+                </div>
+              ) : (
+                <div>
+                  <p className="text-sm leading-7 text-neutral-700">
+                    这里将放置 {note.title} 的正式复习笔记内容。第一版先完成页面结构和访问规则，之后再逐篇填入笔记正文。
+                  </p>
+
+                  <div className="mt-8 border-t border-neutral-200 pt-6">
+                    <h2 className="text-lg font-semibold">
+                      复习结构
+                    </h2>
+                    <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-neutral-700">
+                      <li>核心概念</li>
+                      <li>考试重点</li>
+                      <li>答题模板</li>
+                      <li>练习题</li>
+                    </ul>
+                  </div>
+                </div>
+              )}
             </article>
           )}
 
           {note.access === "register" && (
-            <section className="mt-10 rounded-2xl border border-neutral-200 bg-white p-8">
-              <h2 className="text-2xl font-semibold">
+            <section className="mt-10 rounded-2xl border border-neutral-200 bg-white p-6">
+              <h2 className="text-lg font-semibold">
                 Register to continue reading
               </h2>
 
-              <p className="mt-4 leading-7 text-neutral-600">
+              <p className="mt-4 text-sm leading-7 text-neutral-600">
                 这篇笔记属于注册后阅读内容。第一版暂时先显示注册提示，后续再接入真实登录系统。
               </p>
 
@@ -75,10 +113,10 @@ export default async function NotePage({
           )}
 
           {note.access === "unlock" && (
-            <section className="mt-10 rounded-2xl border border-neutral-200 bg-white p-8">
-              <h2 className="text-2xl font-semibold">Unlock this note</h2>
+            <section className="mt-10 rounded-2xl border border-neutral-200 bg-white p-6">
+              <h2 className="text-lg font-semibold">Unlock this note</h2>
 
-              <p className="mt-4 leading-7 text-neutral-600">
+              <p className="mt-4 text-sm leading-7 text-neutral-600">
                 这篇笔记需要通过反馈、分享、加入学习群或贡献笔记解锁。第一版先测试用户是否愿意完成这些行为。
               </p>
 

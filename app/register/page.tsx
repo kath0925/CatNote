@@ -1,4 +1,4 @@
-import { SiteHeader } from "@/src/components/SiteHeader";
+import { SiteHeader } from "@/components/SiteHeader";
 
 export default function RegisterPage() {
   return (
@@ -16,11 +16,11 @@ export default function RegisterPage() {
             Register
           </p>
 
-          <h1 className="text-5xl font-bold tracking-tight">
+          <h1 className="text-4xl font-bold tracking-tight">
             Continue reading CatNote.
           </h1>
 
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-neutral-600">
+          <p className="mt-6 max-w-2xl text-base leading-7 text-neutral-600">
             第一版暂时不接入真实账号系统。这里先用于测试用户是否愿意为了继续阅读而注册。
           </p>
 
