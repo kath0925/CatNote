@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { noteContents } from "@/data/noteContents";
+import { notePreviews } from "@/data/notePreviews";
 import { softwareEngineeringNotes } from "@/data/softwareEngineeringNotes";
 import { SiteHeader } from "@/components/SiteHeader";
 
@@ -17,6 +18,7 @@ export default async function NotePage({
   const { noteId } = await params;
   const note = softwareEngineeringNotes.find((item) => item.id === noteId);
   const content = noteContents[noteId as keyof typeof noteContents];
+  const preview = notePreviews[noteId as keyof typeof notePreviews];
 
   if (!note) {
     notFound();
@@ -99,7 +101,21 @@ export default async function NotePage({
                 Register to continue reading
               </h2>
 
-              <p className="mt-4 text-sm leading-7 text-neutral-600">
+              {preview ? (
+                <div className="mt-6 rounded-xl bg-neutral-50 p-5">
+                  <p className="text-sm font-medium text-neutral-500">
+                    Preview
+                  </p>
+
+                  <div className="mt-3 space-y-3 text-sm leading-7 text-neutral-700">
+                    {preview.preview.map((item) => (
+                      <p key={item}>{item}</p>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+
+              <p className="mt-6 text-sm leading-7 text-neutral-600">
                 这篇笔记属于注册后阅读内容。第一版暂时先显示注册提示，后续再接入真实登录系统。
               </p>
 
@@ -116,7 +132,21 @@ export default async function NotePage({
             <section className="mt-10 rounded-2xl border border-neutral-200 bg-white p-6">
               <h2 className="text-lg font-semibold">Unlock this note</h2>
 
-              <p className="mt-4 text-sm leading-7 text-neutral-600">
+              {preview ? (
+                <div className="mt-6 rounded-xl bg-neutral-50 p-5">
+                  <p className="text-sm font-medium text-neutral-500">
+                    Preview
+                  </p>
+
+                  <div className="mt-3 space-y-3 text-sm leading-7 text-neutral-700">
+                    {preview.preview.map((item) => (
+                      <p key={item}>{item}</p>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+
+              <p className="mt-6 text-sm leading-7 text-neutral-600">
                 这篇笔记需要通过反馈、分享、加入学习群或贡献笔记解锁。第一版先测试用户是否愿意完成这些行为。
               </p>
 
