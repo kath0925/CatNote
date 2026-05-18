@@ -1,33 +1,226 @@
+export type NoteContentBlock =
+  | {
+      type: "heading" | "subheading" | "paragraph";
+      text: string;
+    }
+  | {
+      type: "orderedList" | "unorderedList";
+      items: readonly string[];
+    };
+
+type NoteContentSection =
+  | {
+      heading: string;
+      body: readonly string[];
+      note?: string;
+    }
+  | {
+      heading: string;
+      blocks: readonly NoteContentBlock[];
+      note?: string;
+    };
+
+type NoteContent = {
+  title: string;
+  sections: readonly NoteContentSection[];
+};
+
 export const noteContents = {
   "1": {
     title: "Introduction",
     sections: [
       {
-        heading: "课程概览",
-        body: [
-          "Software Engineering Discipline and Practice 这门课主要讲：软件不是只靠写代码完成的，而是需要经过需求分析、设计、项目管理、用户体验评估、质量测试、可持续性和隐私保护等一整套工程化过程。",
-          "这门课的核心目标是让你理解：一个软件系统从想法到交付，不只是 implementation（实现），还包括 requirements（需求）、design（设计）、testing（测试）、management（管理）、evaluation（评估）和 maintenance（维护）。",
+        heading: "复习资料",
+        blocks: [
+          {
+            type: "heading",
+            text: "Software Crisis",
+          },
+          {
+            type: "paragraph",
+            text: "Software Crisis（软件危机）指的是：随着软件规模越来越大、复杂度越来越高，传统“靠程序员直接写代码”的方式越来越难保证项目按时、按预算、按质量交付，导致大量软件项目失败或产生严重后果。",
+          },
+          {
+            type: "paragraph",
+            text: "Lecture 1 明确提到原因包括：software is getting larger and larger、more complex、涉及复杂领域如 human behaviours、energy and cars，系统依赖更强，同时 time to market 更短。",
+          },
+          {
+            type: "subheading",
+            text: "Why Do Software Projects Fail?",
+          },
+          {
+            type: "paragraph",
+            text: "课程用 Ariane 5、Mars Climate Orbiter、Therac-25 说明：软件失败往往不是单个程序员粗心，而是 requirements、integration、testing、reuse、safety validation 和 process management 出了系统性问题。",
+          },
+          {
+            type: "paragraph",
+            text: "Bad developers – not the main problem!",
+          },
+          {
+            type: "orderedList",
+            items: [
+              "Over budget",
+              "Poor requirements",
+              "Over-ambitious requirements",
+              "Unnecessary requirements",
+              "Contract management",
+              "End-user training",
+              "Operational management",
+            ],
+          },
+          {
+            type: "paragraph",
+            text: "考试中要把失败归因到 system/process level（系统/过程层面），不要归因到“程序员不努力”。",
+          },
+          {
+            type: "heading",
+            text: "Software Engineering",
+          },
+          {
+            type: "paragraph",
+            text: "Engineering: cost-effective solutions to practical problems by applying scientific knowledge to building things for people.",
+          },
+          {
+            type: "paragraph",
+            text: "课程的定义可以拆成四部分：",
+          },
+          {
+            type: "orderedList",
+            items: [
+              "cost-effective solutions（成本有效的解决方案）",
+              "practical problems（现实问题）",
+              "scientific knowledge（科学知识，如 modelling、proofs、testing、simulation、patterns）",
+              "building things for people（为客户和最终用户构建软件）",
+            ],
+          },
+          {
+            type: "subheading",
+            text: "SDLC: Software Development Life Cycle",
+          },
+          {
+            type: "paragraph",
+            text: "SDLC 关心的是哪些任务要做、按什么顺序做。",
+          },
+          {
+            type: "paragraph",
+            text: "基本任务：Requirements Analysis（需求分析）、Planning（计划）、Design（设计）、Development（开发）、Testing（测试）、Deployment（部署）、Operation and Maintenance（运营与维护）。",
+          },
+          {
+            type: "paragraph",
+            text: "SDLC",
+          },
+          {
+            type: "subheading",
+            text: "SDLC: Examples",
+          },
+          {
+            type: "paragraph",
+            text: "Waterfall、Agile、V-Model、Spiral 都是不同的 SDLC process（生命周期过程）安排。",
+          },
+          {
+            type: "heading",
+            text: "Verification vs Validation",
+          },
+          {
+            type: "paragraph",
+            text: "高频考点。",
+          },
+          {
+            type: "paragraph",
+            text: "Verification 是 “Are you building it right?”，即检查系统是否符合 requirements、constraints、regulations，关注是否按规格正确构建。",
+          },
+          {
+            type: "paragraph",
+            text: "Validation 是 “Are you building the right thing?”，即检查系统是否真正满足 customers/stakeholders 的需要。",
+          },
+          {
+            type: "paragraph",
+            text: "注意区分：一个系统可能 pass verification but fail validation（通过验证但确认失败），因为它完全按规格实现，但规格本身没有解决用户真实问题。",
+          },
+          {
+            type: "heading",
+            text: "Waterfall",
+          },
+          {
+            type: "paragraph",
+            text: "考试表达的时候，应该用它适合需求稳定、监管强、文档要求高的项目；不适合需求模糊、用户反馈重要、系统交互复杂的项目这样的表达方式，而不是简单说它不好。",
+          },
+          {
+            type: "subheading",
+            text: "Advantages",
+          },
+          {
+            type: "orderedList",
+            items: [
+              "Simple to use and understand",
+              "Every phase has a defined result and process review",
+              "Development stages go one by one",
+              "Perfect for projects where requirements are clear and agreed upon",
+              "Easy to determine the key points in the development cycle",
+              "Easy to classify and prioritize tasks",
+            ],
+          },
+          {
+            type: "subheading",
+            text: "Disadvantages",
+          },
+          {
+            type: "orderedList",
+            items: [
+              "The software is ready only after the last stage is over",
+              "High risks and uncertainty",
+              "Misses complexity due to interdependence of decisions",
+              "Not suited for long-term projects where requirements will change",
+              "The progress of the stage is hard to measure while it is still in the development",
+              "Integration is done at the very end, which does not give the option of identifying the problem in advance",
+            ],
+          },
+          {
+            type: "heading",
+            text: "Insulin Pump case",
+          },
+          {
+            type: "paragraph",
+            text: "这个案例适合用来考 Waterfall 是否合适。",
+          },
+          {
+            type: "paragraph",
+            text: "支持 Waterfall 的理由：它是 safety-critical system（安全关键系统），需要严格 requirements、review、documentation、verification；医疗设备也可能有 regulatory constraints（监管约束）。",
+          },
+          {
+            type: "paragraph",
+            text: "反对 Waterfall 的理由：真实用户需求复杂，剂量算法、传感器反馈、用户场景、风险控制可能需要反复验证；如果集成和用户验证太晚，安全风险会被延后发现。",
+          },
         ],
       },
       {
-        heading: "这门课考什么",
+        heading: "必背重点",
         body: [
-          "考试重点通常不是死记某个定义，而是考你能不能比较不同方法、解释概念的作用，并把它们应用到具体场景中。",
-          "常见考法包括：比较 Agile 和 Waterfall、解释 requirements 的质量、识别 use case / actor、画或分析 UML、理解 project management、解释 HCI evaluation、区分 testing 方法、说明 sustainability / privacy 的设计原则。",
+          "Software Crisis 的根本问题是软件规模、复杂度、依赖关系和交付压力增长，传统直接写代码的方法不够可靠。",
+          "项目失败要从 system/process level 分析，例如 poor requirements、integration、testing、contract management、end-user training 和 operational management。",
+          "Software Engineering 强调 cost-effective、practical problems、scientific knowledge 和 building things for people。",
+          "SDLC 包括 requirements analysis、planning、design、development、testing、deployment、operation and maintenance。",
+          "Verification = building it right；Validation = building the right thing。",
+          "Waterfall 适合 requirements 稳定、阶段明确、监管或文档要求强的项目；不适合 requirements 会变、用户反馈重要、复杂度和不确定性高的项目。",
         ],
       },
       {
-        heading: "复习路线",
+        heading: "答题模板",
         body: [
-          "建议按课程顺序复习：先理解 Software Engineering 和 Agile，再看 Requirements，然后进入 Object-Oriented Design 和 Project Management，最后复习 HCI Evaluation、Testing、Sustainability 和 Privacy。",
-          "前半部分偏软件开发过程和设计，后半部分偏评估、质量和责任。复习时不要孤立背概念，要一直思考：这个概念解决了软件开发中的什么问题？",
+          "Software Engineering is needed because modern software systems are large, complex and often safety-critical. Software failures are usually caused by problems in requirements, integration, testing, validation and process management rather than simply by bad developers.",
+          "Verification asks whether the system is built correctly according to requirements, constraints and regulations. Validation asks whether the right system has been built for the real needs of customers and stakeholders.",
+          "Waterfall is suitable for projects with clear and stable requirements, defined phases, strong documentation needs and regulatory constraints. However, it is less suitable for projects where requirements are uncertain, user feedback is important, or integration risks need to be discovered early.",
         ],
+        note: "答题时不要只背定义，要把概念和项目失败、真实约束、用户需求或安全风险联系起来。",
       },
       {
-        heading: "使用方法",
+        heading: "模拟考题",
         body: [
-          "每篇正式笔记会按照“复习资料、必背重点、答题模板、模拟考题”组织。你应该先读复习资料理解概念，再背必背重点，最后用答题模板和模拟考题训练考试表达。",
-          "如果时间很紧，优先看每篇的“必背重点”和“答题模板”。如果想拿更高分，需要理解每个概念背后的动机和适用场景。",
+          "Explain what is meant by the software crisis.",
+          "Why do software projects fail? Give examples beyond bad developers.",
+          "Explain the difference between verification and validation.",
+          "Under what conditions is the Waterfall model suitable?",
+          "Discuss whether Waterfall is appropriate for a safety-critical system such as an insulin pump.",
         ],
       },
     ],
@@ -37,14 +230,149 @@ export const noteContents = {
     sections: [
       {
         heading: "复习资料",
-        body: [
-          "Agile Software Development（敏捷软件开发）的核心不是“没有计划”，而是通过短周期迭代、持续反馈和可工作的软件来应对需求变化。",
-          "Waterfall（瀑布模型）通常是顺序式开发：先完成 requirements，再 design，再 implementation，再 testing，最后 deployment。它更适合需求稳定、变更较少、流程明确的项目。",
-          "Agile（敏捷）更适合需求不完全明确、用户反馈重要、变化频繁的项目。它强调 working software、customer collaboration、responding to change 和 iterative development。",
-          "Iteration / Sprint（迭代）：一个较短的开发周期，团队在周期内完成一部分可交付功能。",
-          "Working software（可工作的软件）：Agile 更重视能运行、能被用户验证的软件，而不是只依赖大量文档。",
-          "Customer collaboration（客户协作）：开发过程中持续和客户或用户沟通，而不是只在项目开始时确定需求。",
-          "Responding to change（响应变化）：当需求发生变化时，Agile 倾向于调整计划，而不是强行坚持原计划。",
+        blocks: [
+          {
+            type: "heading",
+            text: "Agile Manifesto",
+          },
+          {
+            type: "paragraph",
+            text: "敏捷宣言：",
+          },
+          {
+            type: "orderedList",
+            items: [
+              "Individuals and interactions over processes and tools",
+              "Working software over comprehensive documentation",
+              "Customer collaboration over contract negotiation",
+              "Responding to change over following a plan",
+            ],
+          },
+          {
+            type: "heading",
+            text: "Extreme Programming / XP",
+          },
+          {
+            type: "paragraph",
+            text: "Extreme Programming / XP（极限编程）",
+          },
+          {
+            type: "subheading",
+            text: "XP Ethos",
+          },
+          {
+            type: "paragraph",
+            text: "极限编程基本理念：",
+          },
+          {
+            type: "orderedList",
+            items: [
+              "Simple design: use the simplest way to implement features 简单设计",
+              "Sustainable pace: effort is constant and manageable 可持续的工作",
+              "Coding standards: teams follow an agreed style and format 编码标准",
+              "Collective ownership: everyone owns all the code 集体所有权",
+              "Whole team approach: everyone is included in everything 整体的团队方法",
+            ],
+          },
+          {
+            type: "subheading",
+            text: "XP Practices",
+          },
+          {
+            type: "paragraph",
+            text: "极限编程对应的实践：",
+          },
+          {
+            type: "orderedList",
+            items: [
+              "Pair programming: two heads are better than one 结对编程",
+              "Test driven: ensure the code runs correctly 测试驱动",
+              "Small releases: deliver frequently and get feedback from the client 小版本",
+              "Continuous integration: ensure the system is operational 持续集成",
+              "Refactor: restructure the system when things get messy 重构",
+            ],
+          },
+          {
+            type: "subheading",
+            text: "Pair programming",
+          },
+          {
+            type: "paragraph",
+            text: "结对编程要记住两个角色：helm（掌舵者，实际敲键盘）和 tactician（策略者，思考风险、设计影响和重构机会）。",
+          },
+          {
+            type: "paragraph",
+            text: "它不是“两个人分开写两份代码”，而是一台机器、同步讨论、边写边 review。",
+          },
+          {
+            type: "heading",
+            text: "Test-driven development",
+          },
+          {
+            type: "paragraph",
+            text: "TDD (Test-driven development)：测试驱动开发：逻辑是先写 tests（测试），再写刚好通过测试的代码；如果没有测试支持，这个 feature（功能）原则上不应被实现。",
+          },
+          {
+            type: "subheading",
+            text: "Benefits",
+          },
+          {
+            type: "orderedList",
+            items: [
+              "code coverage代码覆盖",
+              "simplified debugging简化调试",
+              "并让测试本身成为 system documentation（系统文档）的一部分",
+            ],
+          },
+          {
+            type: "heading",
+            text: "Scrum",
+          },
+          {
+            type: "paragraph",
+            text: "敏捷项目管理框架要记住角色和事件：",
+          },
+          {
+            type: "subheading",
+            text: "Roles",
+          },
+          {
+            type: "unorderedList",
+            items: [
+              "Product Owner（产品负责人）负责愿景和 backlog（待办列表）优先级；",
+              "Scrum Master（敏捷教练/流程负责人）负责移除障碍和维护流程；",
+              "Developers（开发团队）负责实现、测试、交付。",
+            ],
+          },
+          {
+            type: "subheading",
+            text: "Events",
+          },
+          {
+            type: "paragraph",
+            text: "Sprint（冲刺）是短周期开发迭代，daily scrum / stand-up（每日站会）用于同步进展；",
+          },
+          {
+            type: "paragraph",
+            text: "Kanban（看板）核心是把工作从 To Do 到 Done 可视化，常见列包括 To Do、In Progress、Done，也可以按团队需要增加 Backlog、Being Verified、Awaiting Integration，但必须有 Done。",
+          },
+          {
+            type: "heading",
+            text: "Problems with Agile",
+          },
+          {
+            type: "paragraph",
+            text: "Agile 的局限：",
+          },
+          {
+            type: "orderedList",
+            items: [
+              "完整规格不会一开始全部写死，所以法律合同较难制定；",
+              "适合 green-field development（新系统从零开始），但对 brownfield development（维护旧系统）不一定理想；",
+              "小型 co-located team（同地小团队）效果较好，但 large distributed development（大型分布式团队）会更难；",
+              "依赖团队成员知识，如果人员离开，风险会上升。",
+            ],
+          },
         ],
       },
       {
@@ -78,43 +406,215 @@ export const noteContents = {
     sections: [
       {
         heading: "复习资料",
-        body: [
-          "Requirements（需求）描述系统应该做什么，以及系统必须满足哪些限制条件。它们是软件开发的起点，因为后续 design、implementation 和 testing 都依赖需求是否清楚。",
-          "Functional requirements（功能需求）描述系统应该提供什么功能，例如用户可以注册账号、提交订单、搜索课程笔记。",
-          "Non-functional requirements（非功能需求）描述系统应该如何表现，例如性能、安全性、可用性、可靠性、可维护性。",
-          "Actor（参与者）是系统外部与系统交互的人、组织或其他系统。Actor 不一定是具体某个人，而是一个 role（角色）。",
-          "Use case（用例）描述某个 actor 为了达成一个目标而与系统发生的一组交互。",
-          "Use case model（用例模型）通常包括 use case diagram 和 use case specification，用来帮助团队理解系统边界、用户目标和主要功能。",
+        blocks: [
+          {
+            type: "subheading",
+            text: "Requirements",
+          },
+          {
+            type: "paragraph",
+            text: "Requirements（需求）描述系统应该做什么，以及系统必须满足哪些限制条件。System requirements specify a system, not in terms of system implementation, but in terms of user observation. Requirements record description of the system features and constraints.",
+          },
+          {
+            type: "subheading",
+            text: "Functional requirements",
+          },
+          {
+            type: "paragraph",
+            text: "功能性需求：说明系统应该做什么，例如提供哪些服务、如何响应输入、在特定场景下如何行为，系统不应该做什么。",
+          },
+          {
+            type: "orderedList",
+            items: [
+              "Statements of services the system should provide",
+              "How the system should react to particular inputs",
+              "How the system should behave in particular situations",
+              "May also state what the system should NOT do",
+            ],
+          },
+          {
+            type: "subheading",
+            text: "Non-functional requirements",
+          },
+          {
+            type: "paragraph",
+            text: "非功能性需求：说明系统如何实现这些功能，如安全性、可用性、响应时间、可访问性等，通常作用于整个系统而非单个功能。",
+          },
+          {
+            type: "paragraph",
+            text: "Non-functional requirements are constraints on the services or functions offered by the system, and often apply to the whole system rather than individual features.",
+          },
+          {
+            type: "subheading",
+            text: "Why Requirements Engineering matters",
+          },
+          {
+            type: "paragraph",
+            text: "真实项目里常见问题包括：不同人用词不一致、需求冲突、用户自己说不清想要什么、需求经常变化、关键人员或信息不容易获得。",
+          },
+          {
+            type: "subheading",
+            text: "Acceptance criteria",
+          },
+          {
+            type: "paragraph",
+            text: "好的 requirements 必须能变成 acceptance criteria。所以需求要满足 unambiguous / precise（无歧义、精确）、measurable（可测量）、understandable / clear（清楚易懂）。",
+          },
+          {
+            type: "subheading",
+            text: "需求分析路径",
+          },
+          {
+            type: "orderedList",
+            items: [
+              "Identify stakeholders",
+              "Identify top-level needs",
+              "Break down into user stories",
+              "Write atomic requirements / acceptance criteria",
+              "Use UML use case to express functional behaviour",
+            ],
+          },
+          {
+            type: "subheading",
+            text: "Stakeholder",
+          },
+          {
+            type: "paragraph",
+            text: "Stakeholder（利益相关者）不只是用户，还可以包括客户、系统管理员、测试者、开发者、业务分析师、法律/监管代表、surrogate stakeholders，甚至 negative stakeholders。",
+          },
+          {
+            type: "subheading",
+            text: "Agile requirements",
+          },
+          {
+            type: "paragraph",
+            text: "Agile requirements 的层级是 Initiative → Epic → User Story。Initiative 是战略目标；Epic 是大的用户或业务目标，通常跨多个 sprint；User Story 是一个 sprint 内能完成的具体功能。",
+          },
+          {
+            type: "paragraph",
+            text: "User Story 标准格式：As a <type of user>, I want to <goal> so that <reason>.",
+          },
+          {
+            type: "subheading",
+            text: "INVEST",
+          },
+          {
+            type: "orderedList",
+            items: [
+              "Independent",
+              "Negotiable",
+              "Valuable",
+              "Estimable",
+              "Small",
+              "Testable",
+            ],
+          },
+          {
+            type: "paragraph",
+            text: "INVEST 用来判断 user story 是否质量足够好。",
+          },
+          {
+            type: "subheading",
+            text: "Acceptance Criteria",
+          },
+          {
+            type: "paragraph",
+            text: "Acceptance Criteria 要 Clear、Testable、Measurable、Atomic。Given-When-Then 模板是：Given <initial context or precondition>, when <action or event>, then <expected outcome>.",
+          },
+          {
+            type: "subheading",
+            text: "Prioritisation",
+          },
+          {
+            type: "paragraph",
+            text: "Prioritisation（优先级排序）主要看 user needs、business value 和 technical considerations。常用方法包括 MoSCoW 和 Value vs Effort。",
+          },
+          {
+            type: "subheading",
+            text: "MoSCoW",
+          },
+          {
+            type: "orderedList",
+            items: [
+              "Must-Have: essential",
+              "Should-Have: important",
+              "Could-Have: nice to have",
+              "Won’t-Have: out of scope at present",
+            ],
+          },
+          {
+            type: "subheading",
+            text: "Value vs Effort",
+          },
+          {
+            type: "orderedList",
+            items: [
+              "High value, Low effort: 优先做",
+              "High value, High effort: 后做",
+              "Low value, Low effort: 有时间再做",
+              "Low value, High effort: 避免",
+            ],
+          },
+          {
+            type: "heading",
+            text: "UML Use Case",
+          },
+          {
+            type: "paragraph",
+            text: "UML Use Case（用例）部分要掌握 actor、use case、association、use-case diagram、use-case specification。Actor 是系统外部与系统交互的角色，可以是人、机器或另一个系统。Use case 是系统执行的一系列动作，给某个 actor 产生可观察的价值结果。",
+          },
+          {
+            type: "subheading",
+            text: "Use-case diagram",
+          },
+          {
+            type: "paragraph",
+            text: "Use-case diagram 显示 actors、use cases 和它们的关系，定义系统边界，说明谁和系统交互、系统提供哪些行为。",
+          },
+          {
+            type: "subheading",
+            text: "Use-case specification",
+          },
+          {
+            type: "paragraph",
+            text: "Use-case specification 是文字版本，通常包括 use case name、brief description、basic flow、alternative flows、preconditions、postconditions、special requirements。Basic flow 是成功主路径；alternative flows 包括正常变体、特殊情况和错误流程。",
+          },
         ],
       },
       {
         heading: "必背重点",
         body: [
-          "Requirements 的作用是把用户需要和系统行为明确下来，避免团队开发错误功能。",
-          "好的 requirements 应该清楚、可测试、一致、完整，并且与用户目标相关。",
-          "Functional requirements 关注系统做什么；non-functional requirements 关注系统做得怎么样。",
-          "Actor 是系统外部的角色，不是系统内部组件。",
-          "Use case 不是一个普通功能列表，而是从 actor 目标出发描述系统交互。",
-          "需求不清楚会导致 scope creep、返工、测试困难和项目失败。",
+          "Functional requirements 关注系统做什么；Non-functional requirements 关注系统做得怎么样。",
+          "Requirements Engineering 的核心价值是减少歧义、冲突、遗漏和变化带来的风险。",
+          "好的 requirement 应该 clear、measurable、testable、unambiguous。",
+          "Agile requirements 层级：Initiative → Epic → User Story。",
+          "User Story 格式：As a user, I want a goal, so that I get value。",
+          "INVEST 用来判断 user story 质量。",
+          "Acceptance Criteria 要 Clear、Testable、Measurable、Atomic。",
+          "MoSCoW 用来做需求优先级排序。",
+          "Use case 从 actor 目标出发描述系统交互，不是普通功能列表。",
         ],
       },
       {
         heading: "答题模板",
         body: [
-          "Requirements describe what a system should do and the constraints it must satisfy. Functional requirements specify the services or behaviours provided by the system, while non-functional requirements describe quality attributes such as performance, usability, security and reliability. Clear requirements are important because they guide design, implementation and testing, and reduce the risk of building the wrong system.",
-          "A use case describes an interaction between an external actor and the system in order to achieve a specific goal. It helps developers understand user goals, system boundaries and expected behaviour.",
+          "Functional requirements describe what the system should do, such as the services it provides and how it responds to inputs. Non-functional requirements describe constraints or quality attributes of the system, such as performance, usability, security and reliability.",
+          "Requirements Engineering is important because stakeholders may use inconsistent terminology, have conflicting needs, or be unable to explain what they want clearly. Requirements may also change frequently. A systematic requirements process helps reduce ambiguity and supports design, implementation and testing.",
+          "A good user story should follow INVEST: it should be independent, negotiable, valuable, estimable, small and testable. This helps ensure that the story can be understood, planned and completed within an iteration.",
+          "A use case describes how an external actor interacts with the system to achieve a goal. It helps define the system boundary, expected behaviour and value delivered to the actor.",
         ],
-        note: "如果题目问 requirements quality，优先写 clear、testable、consistent、complete；如果题目问 use case，优先写 actor、goal、system interaction。",
       },
       {
         heading: "模拟考题",
         body: [
           "Explain the difference between functional and non-functional requirements.",
-          "What makes a requirement good quality?",
-          "Define actor and use case in a use case model.",
-          "Why are requirements important in software engineering?",
+          "Why is Requirements Engineering important in software development?",
+          "What are the qualities of good acceptance criteria?",
+          "Explain the INVEST criteria for good user stories.",
+          "Define actor and use case in a UML use-case model.",
+          "Explain how MoSCoW can be used to prioritise requirements.",
         ],
       },
     ],
   },
-} as const;
+} as const satisfies Record<string, NoteContent>;
