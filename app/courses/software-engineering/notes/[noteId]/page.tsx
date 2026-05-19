@@ -1,8 +1,69 @@
 import { notFound } from "next/navigation";
 import { noteContents } from "@/data/noteContents";
+import type { NoteContentBlock } from "@/data/noteContents";
 import { notePreviews } from "@/data/notePreviews";
 import { softwareEngineeringNotes } from "@/data/softwareEngineeringNotes";
 import { SiteHeader } from "@/components/SiteHeader";
+
+function renderContentBlock(block: NoteContentBlock) {
+  if (block.type === "heading") {
+    return (
+      <h1
+        key={block.text}
+        className="mb-[8px] text-[15px] font-semibold leading-[24px] text-neutral-900"
+      >
+        {block.text}
+      </h1>
+    );
+  }
+
+  if (block.type === "subheading") {
+    return (
+      <h1
+        key={block.text}
+        className="mt-[20px] mb-[8px] text-[15px] font-semibold leading-[24px] text-neutral-900 first:mt-0"
+      >
+        {block.text}
+      </h1>
+    );
+  }
+
+  if (block.type === "orderedList") {
+    return (
+      <ol
+        key={block.items.join("|")}
+        className="mb-[12px] list-decimal space-y-[6px] pl-5 text-[14px] leading-[24px] text-neutral-700"
+      >
+        {block.items.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ol>
+    );
+  }
+
+  if (block.type === "unorderedList") {
+    return (
+      <ul
+        key={block.items.join("|")}
+        className="mb-[12px] list-disc space-y-[6px] pl-5 text-[14px] leading-[24px] text-neutral-700"
+      >
+        {block.items.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+    );
+  }
+
+  if (block.type === "paragraph") {
+    return (
+      <p key={block.text} className="mb-[8px] text-[14px] leading-[24px]">
+        {block.text}
+      </p>
+    );
+  }
+
+  return null;
+}
 
 export function generateStaticParams() {
   return softwareEngineeringNotes.map((note) => ({
@@ -49,15 +110,21 @@ export default async function NotePage({
                 <div className="space-y-8">
                   {content.sections.map((section) => (
                     <section key={section.heading}>
-                      <h2 className="text-lg font-semibold">
+                      <h1 className="mb-[12px] text-lg font-semibold leading-[24px] text-neutral-900">
                         {section.heading}
-                      </h2>
+                      </h1>
 
-                      <div className="mt-4 space-y-4 text-sm leading-7 text-neutral-700">
-                        {section.body.map((paragraph) => (
-                          <p key={paragraph}>{paragraph}</p>
-                        ))}
-                      </div>
+                      {"blocks" in section ? (
+                        <div className="mt-4 space-y-[24px] text-[14px] leading-[24px] text-neutral-700">
+                          {section.blocks.map(renderContentBlock)}
+                        </div>
+                      ) : (
+                        <div className="mt-4 space-y-4 text-sm leading-7 text-neutral-700">
+                          {section.body.map((paragraph) => (
+                            <p key={paragraph}>{paragraph}</p>
+                          ))}
+                        </div>
+                      )}
 
                       {"note" in section ? (
                         <p className="mt-3 text-sm leading-6 text-neutral-500">
@@ -80,9 +147,9 @@ export default async function NotePage({
                   </p>
 
                   <div className="mt-8 border-t border-neutral-200 pt-6">
-                    <h2 className="text-lg font-semibold">
+                    <h1 className="text-lg font-semibold">
                       复习结构
-                    </h2>
+                    </h1>
                     <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-neutral-700">
                       <li>核心概念</li>
                       <li>考试重点</li>
@@ -97,9 +164,9 @@ export default async function NotePage({
 
           {note.access === "register" && (
             <section className="mt-10 rounded-2xl border border-neutral-200 bg-white p-6">
-              <h2 className="text-lg font-semibold">
+              <h1 className="text-lg font-semibold">
                 Register to continue reading
-              </h2>
+              </h1>
 
               {preview ? (
                 <div className="mt-6 rounded-xl bg-neutral-50 p-5">
@@ -130,7 +197,7 @@ export default async function NotePage({
 
           {note.access === "unlock" && (
             <section className="mt-10 rounded-2xl border border-neutral-200 bg-white p-6">
-              <h2 className="text-lg font-semibold">Unlock this note</h2>
+              <h1 className="text-lg font-semibold">Unlock this note</h1>
 
               {preview ? (
                 <div className="mt-6 rounded-xl bg-neutral-50 p-5">
