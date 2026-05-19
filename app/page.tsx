@@ -28,32 +28,32 @@ export default function Home() {
             </a>
 
             <a
-              href="/courses/software-engineering"
+              href="/download"
               className="rounded-xl border border-neutral-300 px-5 py-3 text-sm font-medium"
             >
-              View course notes
+              Download revision pack
             </a>
           </div>
 
           <div className="mt-16 grid gap-4 md:grid-cols-3">
             <div className="rounded-2xl border border-neutral-200 bg-white p-5">
-              <h2 className="text-lg font-semibold">3 free notes</h2>
+              <h2 className="text-lg font-semibold">Free online notes</h2>
               <p className="mt-2 text-sm leading-6 text-neutral-600">
-                前 3 篇无需注册，直接阅读。
+                在线复习笔记免费阅读，先快速理解课程重点。
               </p>
             </div>
 
             <div className="rounded-2xl border border-neutral-200 bg-white p-5">
-              <h2 className="text-lg font-semibold">Register to continue</h2>
+              <h2 className="text-lg font-semibold">Download pack</h2>
               <p className="mt-2 text-sm leading-6 text-neutral-600">
-                第 4–5 篇注册后阅读。
+                Word / PDF 版本适合离线复习、打印和考前整理。
               </p>
             </div>
 
             <div className="rounded-2xl border border-neutral-200 bg-white p-5">
-              <h2 className="text-lg font-semibold">Unlock more</h2>
+              <h2 className="text-lg font-semibold">Exam practice</h2>
               <p className="mt-2 text-sm leading-6 text-neutral-600">
-                第 6 篇之后可通过反馈、分享、加群或贡献笔记解锁。
+                下载包未来会包含案例题、模拟题和英文答题模板。
               </p>
             </div>
           </div>

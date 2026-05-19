@@ -18,8 +18,30 @@ export default function SoftwareEngineeringPage() {
           </h1>
 
           <p className="mt-6 max-w-2xl text-base leading-7 text-neutral-600">
-            按课程文件顺序整理的复习笔记。前 3 篇免费阅读，第 4–5 篇注册后阅读，第 6 篇之后通过反馈、分享、加群或贡献笔记解锁。
+            按课程文件顺序整理的复习笔记。网页笔记免费在线阅读，下载包用于离线复习、打印标注和考前快速整理。
           </p>
+        </section>
+
+        <section className="mb-8 rounded-2xl border border-neutral-200 bg-white p-6">
+          <p className="mb-[8px] text-sm font-medium uppercase tracking-wide text-neutral-500">
+            Offline revision
+          </p>
+
+          <h2 className="mb-[8px] text-lg font-semibold leading-[24px]">
+            Want a printable revision pack?
+          </h2>
+
+          <p className="text-sm leading-[24px] text-neutral-600">
+            网页笔记可以免费在线阅读。如果你想离线复习、打印标注或考前快速整理，可以申请下载 Word /
+            PDF 复习包、案例题包和英文答题模板。
+          </p>
+
+          <a
+            href="/download"
+            className="mt-6 inline-block rounded-xl bg-neutral-900 px-5 py-3 text-sm font-medium text-white"
+          >
+            View download pack
+          </a>
         </section>
 
         <section className="grid gap-4">

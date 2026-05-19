@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import { noteContents } from "@/data/noteContents";
 import type { NoteContentBlock } from "@/data/noteContents";
-import { notePreviews } from "@/data/notePreviews";
 import { softwareEngineeringNotes } from "@/data/softwareEngineeringNotes";
 import { SiteHeader } from "@/components/SiteHeader";
 
@@ -79,7 +78,6 @@ export default async function NotePage({
   const { noteId } = await params;
   const note = softwareEngineeringNotes.find((item) => item.id === noteId);
   const content = noteContents[noteId as keyof typeof noteContents];
-  const preview = notePreviews[noteId as keyof typeof notePreviews];
 
   if (!note) {
     notFound();
@@ -134,119 +132,22 @@ export default async function NotePage({
                     </section>
                   ))}
 
-                  <iframe
-                    src="/notes/introduction.pdf"
-                    className="mt-8 h-[800px] w-full rounded-2xl border border-neutral-200"
-                    title="Introduction PDF"
-                  />
+                  {note.id === "1" ? (
+                    <iframe
+                      src="/notes/introduction.pdf"
+                      className="mt-8 h-[800px] w-full rounded-2xl border border-neutral-200"
+                      title="Introduction PDF"
+                    />
+                  ) : null}
                 </div>
               ) : (
                 <div>
                   <p className="text-sm leading-7 text-neutral-700">
-                    这里将放置 {note.title} 的正式复习笔记内容。第一版先完成页面结构和访问规则，之后再逐篇填入笔记正文。
+                    This note is coming soon.
                   </p>
-
-                  <div className="mt-8 border-t border-neutral-200 pt-6">
-                    <h1 className="text-lg font-semibold">
-                      复习结构
-                    </h1>
-                    <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-neutral-700">
-                      <li>核心概念</li>
-                      <li>考试重点</li>
-                      <li>答题模板</li>
-                      <li>练习题</li>
-                    </ul>
-                  </div>
                 </div>
               )}
             </article>
-          )}
-
-          {note.access === "register" && (
-            <section className="mt-10 rounded-2xl border border-neutral-200 bg-white p-6">
-              <h1 className="text-lg font-semibold">
-                Register to continue reading
-              </h1>
-
-              {preview ? (
-                <div className="mt-6 rounded-xl bg-neutral-50 p-5">
-                  <p className="text-sm font-medium text-neutral-500">
-                    Preview
-                  </p>
-
-                  <div className="mt-3 space-y-3 text-sm leading-7 text-neutral-700">
-                    {preview.preview.map((item) => (
-                      <p key={item}>{item}</p>
-                    ))}
-                  </div>
-                </div>
-              ) : null}
-
-              <p className="mt-6 text-sm leading-7 text-neutral-600">
-                这篇笔记属于注册后阅读内容。第一版暂时先显示注册提示，后续再接入真实登录系统。
-              </p>
-
-              <a
-                href="/register"
-                className="mt-8 inline-block rounded-xl bg-neutral-900 px-5 py-3 text-sm font-medium text-white"
-              >
-                Register to unlock
-              </a>
-            </section>
-          )}
-
-          {note.access === "unlock" && (
-            <section className="mt-10 rounded-2xl border border-neutral-200 bg-white p-6">
-              <h1 className="text-lg font-semibold">Unlock this note</h1>
-
-              {preview ? (
-                <div className="mt-6 rounded-xl bg-neutral-50 p-5">
-                  <p className="text-sm font-medium text-neutral-500">
-                    Preview
-                  </p>
-
-                  <div className="mt-3 space-y-3 text-sm leading-7 text-neutral-700">
-                    {preview.preview.map((item) => (
-                      <p key={item}>{item}</p>
-                    ))}
-                  </div>
-                </div>
-              ) : null}
-
-              <p className="mt-6 text-sm leading-7 text-neutral-600">
-                这篇笔记需要通过反馈、分享、加入学习群或贡献笔记解锁。第一版先测试用户是否愿意完成这些行为。
-              </p>
-
-              <div className="mt-8 grid gap-3">
-                <a
-                  href="/unlock"
-                  className="rounded-xl border border-neutral-300 px-5 py-3 text-sm font-medium hover:border-neutral-900"
-                >
-                  Give feedback
-                </a>
-
-                <a
-                  href="/unlock"
-                  className="rounded-xl border border-neutral-300 px-5 py-3 text-sm font-medium hover:border-neutral-900"
-                >
-                  Share with a friend
-                </a>
-
-                <a
-                  href="/unlock"
-                  className="rounded-xl border border-neutral-300 px-5 py-3 text-sm font-medium hover:border-neutral-900"
-                >
-                  Join study group
-                </a>
-
-                <a
-                  href="/unlock"
-                  className="rounded-xl border border-neutral-300 px-5 py-3 text-sm font-medium hover:border-neutral-900"
-                >
-                  Contribute notes
-                </a>
-              </div>
-            </section>
           )}
         </section>
       </section>
