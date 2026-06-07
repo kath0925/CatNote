@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CatNote
 
-## Getting Started
+CatNote is a free technical documentation site rebuilt with VitePress.
 
-First, run the development server:
+The project is now positioned as a content-first knowledge base. The old Next.js commercial structure, download pages, request-access flow, and download package validation logic have been removed.
+
+## Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Build the static site:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Preview the production build:
 
-## Learn More
+```bash
+npm run preview
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Vercel
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Use these Vercel project settings:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```text
+Build Command: npm run build
+Output Directory: docs/.vitepress/dist
+```
 
-## Deploy on Vercel
+The same settings are also captured in `vercel.json`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Security Audit
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+`npm audit` currently reports 3 moderate advisories from the VitePress dependency chain:
+
+```text
+vitepress -> vite -> esbuild
+```
+
+The advisory concerns the development server and npm reports no available fix for the installed VitePress line. Do not run `npm audit fix --force` for this without checking compatibility first.
+
+## Structure
+
+```text
+docs/
+  index.md
+  software-engineering/
+    index.md
+    introduction.md
+    agile.md
+    requirements.md
+    object-oriented-design.md
+  java/
+    index.md
+  mathematics/
+    index.md
+  .vitepress/
+    config.ts
+    theme/
+      index.ts
+      custom.css
+```

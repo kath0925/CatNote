@@ -1,5 +1,5 @@
-<!-- BEGIN:nextjs-agent-rules -->
-# This is NOT the Next.js you know
+# CatNote Agent Notes
 
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
-<!-- END:nextjs-agent-rules -->
+第一性原理：从原始需求出发，动机不清立即停，路径非最优解立即纠正。
+
+CatNote is a VitePress documentation site. Prefer Markdown content and VitePress default theme configuration before adding custom UI.
