@@ -1,3 +1,3 @@
 # Mathematics
 
-Mathematics notes will be organized here as CatNote expands.
+数学笔记正在整理中，后续会按主题逐步补充。

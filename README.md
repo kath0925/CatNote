@@ -51,10 +51,11 @@ docs/
   index.md
   software-engineering/
     index.md
-    introduction.md
-    agile.md
-    requirements.md
+    1_introduction.md
+    2_agile.md
+    3_requirements.md
     object-oriented-design.md
+    project-management.md
   java/
     index.md
   mathematics/

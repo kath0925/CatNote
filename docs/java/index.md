@@ -1,3 +1,3 @@
 # Java
 
-Java notes will be organized here as CatNote expands.
+Java 笔记正在整理中，后续会按主题逐步补充。

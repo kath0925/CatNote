@@ -1,10 +1,379 @@
 :root {
-  --vp-c-brand-1: #2563eb;
-  --vp-c-brand-2: #1d4ed8;
-  --vp-c-brand-3: #60a5fa;
-  --vp-home-hero-name-color: #111827;
+  --vp-c-brand-1: #2f2b27;
+  --vp-c-brand-2: #3d3d3f;
+  --vp-c-brand-3: #5b534c;
+  --vp-c-brand-soft: rgba(47, 43, 39, 0.08);
+  --vp-button-brand-border: #2f2b27;
+  --vp-button-brand-bg: #2f2b27;
+  --vp-button-brand-hover-border: #3d3d3f;
+  --vp-button-brand-hover-bg: #3d3d3f;
+  --vp-button-brand-active-border: #5b534c;
+  --vp-button-brand-active-bg: #5b534c;
+  --vp-home-hero-name-color: #2f2b27;
+}
+
+.dark {
+  --vp-c-brand-1: #f9fafb;
+  --vp-c-brand-2: #e5e7eb;
+  --vp-c-brand-3: #9ca3af;
+  --vp-c-brand-soft: rgba(249, 250, 251, 0.12);
+  --vp-button-brand-border: #e5e7eb;
+  --vp-button-brand-text: #111827;
+  --vp-button-brand-bg: #e5e7eb;
+  --vp-button-brand-hover-border: #f9fafb;
+  --vp-button-brand-hover-text: #111827;
+  --vp-button-brand-hover-bg: #f9fafb;
+  --vp-button-brand-active-border: #d1d5db;
+  --vp-button-brand-active-text: #111827;
+  --vp-button-brand-active-bg: #d1d5db;
 }
 
 .VPDoc .content-container {
   max-width: 820px;
+}
+
+.vp-doc {
+  --doc-course-color: #5b534c;
+}
+
+.vp-doc[class*="software-engineering_"] {
+  --doc-course-color: #a4b494;
+}
+
+.vp-doc h1 .heading-number,
+.vp-doc h2 .heading-number,
+.vp-doc h3 .heading-number {
+  color: var(--doc-course-color);
+}
+
+.VPHome {
+  --vp-home-hero-name-color: #2f2b27;
+  --vp-home-hero-name-background: transparent;
+  background:
+    radial-gradient(circle at 16% 0%, rgba(238, 231, 220, 0.72), transparent 28rem),
+    linear-gradient(180deg, #f8f5ef 0%, #f3eee6 100%);
+}
+
+.dark .VPHome {
+  --vp-home-hero-name-color: #f5f1ea;
+  background:
+    radial-gradient(circle at 16% 0%, rgba(91, 83, 76, 0.28), transparent 28rem),
+    linear-gradient(180deg, #1f1f1f 0%, #252321 100%);
+}
+
+.course-grid {
+  display: block;
+  column-count: 3;
+  column-gap: 18px;
+  width: 100%;
+  max-width: 1152px;
+  margin: 8px auto 56px;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+.course-card {
+  --course-color: #6b7280;
+  --course-color-soft: rgba(107, 114, 128, 0.1);
+  --course-color-border: rgba(107, 114, 128, 0.22);
+  display: inline-block;
+  break-inside: avoid;
+  width: 100%;
+  min-width: 0;
+  margin: 0 0 18px;
+  overflow: hidden;
+  border: 1px solid rgba(47, 43, 39, 0.12);
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: var(--vp-c-text-1);
+  background: rgba(255, 252, 247, 0.9);
+  box-shadow: 0 10px 30px rgba(47, 43, 39, 0.06);
+  text-decoration: none;
+  transition:
+    border-color 0.2s,
+    background-color 0.2s,
+    box-shadow 0.2s,
+    transform 0.2s;
+}
+
+.course-card:hover {
+  border-color: var(--course-color-border);
+  background: #fffaf3;
+  box-shadow: 0 14px 34px rgba(47, 43, 39, 0.1);
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.course-card.is-disabled {
+  opacity: 0.72;
+}
+
+.course-card.is-disabled:hover {
+  transform: none;
+}
+
+.course-card-header {
+  background: var(--course-color);
+  padding: 16px 18px;
+}
+
+.course-card-body {
+  padding: 16px 18px 18px;
+}
+
+.course-card-kicker {
+  display: inline-flex;
+  border: 1px solid var(--course-color-border);
+  border-radius: 999px;
+  padding: 1px 8px;
+  color: var(--course-color);
+  background: var(--course-color-soft);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.course-card h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+}
+
+.course-card p {
+  margin: 12px 0 0;
+  color: var(--vp-c-text-2);
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.course-software-engineering {
+  --course-color: #a4b494;
+  --course-color-soft: rgba(164, 180, 148, 0.16);
+  --course-color-border: rgba(164, 180, 148, 0.36);
+}
+
+.course-java {
+  --course-color: #c86e46;
+  --course-color-soft: rgba(200, 110, 70, 0.14);
+  --course-color-border: rgba(200, 110, 70, 0.34);
+}
+
+.course-mathematics {
+  --course-color: #b08aa3;
+  --course-color-soft: rgba(176, 138, 163, 0.15);
+  --course-color-border: rgba(176, 138, 163, 0.34);
+}
+
+.course-c {
+  --course-color: #9b4a5a;
+  --course-color-soft: rgba(155, 74, 90, 0.14);
+  --course-color-border: rgba(155, 74, 90, 0.34);
+}
+
+.course-computer-architecture {
+  --course-color: #5d8f8c;
+  --course-color-soft: rgba(93, 143, 140, 0.16);
+  --course-color-border: rgba(93, 143, 140, 0.36);
+}
+
+.dark .course-card {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(37, 37, 37, 0.92);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.24);
+}
+
+.dark .course-card:hover {
+  border-color: var(--course-color-border);
+  background: #2d2c2a;
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.32);
+}
+
+.feedback-panel {
+  margin-top: 48px;
+  border-top: 1px solid var(--vp-c-divider);
+  padding-top: 24px;
+}
+
+.feedback-panel h2 {
+  border-top: 0;
+  margin: 0;
+  padding-top: 0;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.feedback-panel p {
+  margin: 8px 0 0;
+  color: var(--vp-c-text-2);
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.feedback-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.feedback-button {
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  padding: 7px 13px;
+  color: var(--vp-c-text-1);
+  background: var(--vp-c-bg);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+  transition:
+    border-color 0.2s,
+    color 0.2s,
+    background-color 0.2s;
+}
+
+.feedback-button:hover {
+  border-color: var(--vp-c-text-1);
+  color: var(--vp-c-text-1);
+  background: var(--vp-c-bg-soft);
+}
+
+.feedback-button.primary {
+  border-color: var(--vp-c-text-1);
+  color: var(--vp-c-white);
+  background: var(--vp-c-text-1);
+}
+
+.feedback-button.primary:hover {
+  border-color: var(--vp-c-text-2);
+  color: var(--vp-c-white);
+  background: var(--vp-c-text-2);
+}
+
+.dark .feedback-button.primary {
+  color: var(--vp-c-bg);
+}
+
+.hypothesis-panel {
+  margin-top: 48px;
+  border: 1px solid var(--doc-course-color-border, var(--vp-c-divider));
+  border-left: 3px solid var(--doc-course-color, #5b534c);
+  border-radius: 8px;
+  padding: 18px;
+  background: var(--doc-course-color-soft, var(--vp-c-bg-soft));
+}
+
+.hypothesis-panel h2 {
+  border-top: 0;
+  margin: 0;
+  padding-top: 0;
+  color: var(--vp-c-text-1);
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.hypothesis-panel p {
+  margin: 8px 0 0;
+  color: var(--vp-c-text-2);
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.content-container:has(.vp-doc[class*="software-engineering_"]) .hypothesis-panel {
+  --doc-course-color: #a4b494;
+  --doc-course-color-soft: rgba(164, 180, 148, 0.14);
+  --doc-course-color-border: rgba(164, 180, 148, 0.36);
+}
+
+.dark .content-container:has(.vp-doc[class*="software-engineering_"]) .hypothesis-panel {
+  --doc-course-color-soft: rgba(164, 180, 148, 0.13);
+  --doc-course-color-border: rgba(164, 180, 148, 0.34);
+}
+
+.VPDocFooter {
+  --doc-course-color: #5b534c;
+  --doc-course-color-soft: rgba(91, 83, 76, 0.08);
+  --doc-course-color-border: rgba(91, 83, 76, 0.22);
+}
+
+.content-container:has(.vp-doc[class*="software-engineering_"]) .VPDocFooter {
+  --doc-course-color: #a4b494;
+  --doc-course-color-soft: rgba(164, 180, 148, 0.14);
+  --doc-course-color-border: rgba(164, 180, 148, 0.36);
+}
+
+.VPDocFooter .prev-next {
+  gap: 16px;
+}
+
+.VPDocFooter .pager {
+  min-width: 0;
+}
+
+.VPDocFooter .pager-link {
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  border-color: var(--vp-c-divider);
+  background: var(--vp-c-bg);
+  transition:
+    border-color 0.2s,
+    color 0.2s,
+    background-color 0.2s,
+    transform 0.2s;
+}
+
+.VPDocFooter .pager-link.prev {
+  border-left: 3px solid var(--doc-course-color);
+}
+
+.VPDocFooter .pager-link.next {
+  border-right: 3px solid var(--doc-course-color);
+}
+
+.VPDocFooter .pager-link:hover {
+  border-color: var(--doc-course-color-border);
+  background: var(--doc-course-color-soft);
+  transform: translateY(-1px);
+}
+
+.VPDocFooter .pager-link:hover .title {
+  color: var(--doc-course-color);
+}
+
+.VPDocFooter .pager-link .desc {
+  color: var(--vp-c-text-3);
+}
+
+.dark .VPDocFooter {
+  --doc-course-color-soft: rgba(91, 83, 76, 0.16);
+  --doc-course-color-border: rgba(245, 241, 234, 0.18);
+}
+
+.dark .content-container:has(.vp-doc[class*="software-engineering_"]) .VPDocFooter {
+  --doc-course-color: #a4b494;
+  --doc-course-color-soft: rgba(164, 180, 148, 0.13);
+  --doc-course-color-border: rgba(164, 180, 148, 0.34);
+}
+
+.dark .VPDocFooter .pager-link {
+  background: var(--vp-c-bg-soft);
+}
+
+.dark .VPDocFooter .pager-link:hover {
+  background: var(--doc-course-color-soft);
+}
+
+@media (max-width: 959px) {
+  .course-grid {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 639px) {
+  .course-grid {
+    column-count: 1;
+    padding: 0 18px;
+  }
 }

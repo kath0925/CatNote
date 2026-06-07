@@ -16,8 +16,8 @@
 
 ## Notes
 
-- [Introduction](/software-engineering/introduction)
-- [Agile Software Development](/software-engineering/agile)
-- [Requirements](/software-engineering/requirements)
+- [Introduction](/software-engineering/1_introduction)
+- [Agile Software Development](/software-engineering/2_agile)
+- [Requirements](/software-engineering/3_requirements)
 - [Object-Oriented Design](/software-engineering/object-oriented-design)
 - [Project Management](/software-engineering/project-management)
