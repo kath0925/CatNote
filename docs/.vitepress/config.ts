@@ -1,5 +1,6 @@
 import { readFileSync } from "node:fs";
 import { defineConfig } from "vitepress";
+import { withMermaid } from "vitepress-plugin-mermaid";
 
 const markdownTitle = (relativePath: string, fallback: string) => {
   try {
@@ -60,7 +61,7 @@ const wrapHeadingNumbers = (md: any) => {
   };
 };
 
-export default defineConfig({
+export default withMermaid(defineConfig({
   title: "CatNote",
   description: "免费的技术文档笔记站",
   cleanUrls: true,
@@ -96,8 +97,8 @@ export default defineConfig({
               link: "/software-engineering/3_requirements",
             },
             {
-              text: markdownTitle("software-engineering/object-oriented-design.md", "Object-Oriented Design"),
-              link: "/software-engineering/object-oriented-design",
+              text: markdownTitle("software-engineering/4_oodesign.md", "Object-Oriented Design"),
+              link: "/software-engineering/4_oodesign",
             },
             {
               text: markdownTitle("software-engineering/project-management.md", "Project Management"),
@@ -167,4 +168,4 @@ export default defineConfig({
     },
     socialLinks: [],
   },
-});
+}));

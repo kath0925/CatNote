@@ -54,7 +54,7 @@ docs/
     1_introduction.md
     2_agile.md
     3_requirements.md
-    object-oriented-design.md
+    4_oodesign.md
     project-management.md
   java/
     index.md
