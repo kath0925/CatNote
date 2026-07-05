@@ -40,6 +40,10 @@
   --doc-course-color: #a4b494;
 }
 
+.vp-doc[class*="python-advanced_"] {
+  --doc-course-color: #4f8f91;
+}
+
 .vp-doc h1 .heading-number,
 .vp-doc h2 .heading-number,
 .vp-doc h3 .heading-number {
@@ -152,6 +156,12 @@
   --course-color: #a4b494;
   --course-color-soft: rgba(164, 180, 148, 0.16);
   --course-color-border: rgba(164, 180, 148, 0.36);
+}
+
+.course-python-advanced {
+  --course-color: #4f8f91;
+  --course-color-soft: rgba(79, 143, 145, 0.15);
+  --course-color-border: rgba(79, 143, 145, 0.34);
 }
 
 .course-java {
@@ -286,9 +296,20 @@
   --doc-course-color-border: rgba(164, 180, 148, 0.36);
 }
 
+.content-container:has(.vp-doc[class*="python-advanced_"]) .hypothesis-panel {
+  --doc-course-color: #4f8f91;
+  --doc-course-color-soft: rgba(79, 143, 145, 0.14);
+  --doc-course-color-border: rgba(79, 143, 145, 0.34);
+}
+
 .dark .content-container:has(.vp-doc[class*="software-engineering_"]) .hypothesis-panel {
   --doc-course-color-soft: rgba(164, 180, 148, 0.13);
   --doc-course-color-border: rgba(164, 180, 148, 0.34);
+}
+
+.dark .content-container:has(.vp-doc[class*="python-advanced_"]) .hypothesis-panel {
+  --doc-course-color-soft: rgba(79, 143, 145, 0.13);
+  --doc-course-color-border: rgba(79, 143, 145, 0.34);
 }
 
 .VPDocFooter {
@@ -301,6 +322,12 @@
   --doc-course-color: #a4b494;
   --doc-course-color-soft: rgba(164, 180, 148, 0.14);
   --doc-course-color-border: rgba(164, 180, 148, 0.36);
+}
+
+.content-container:has(.vp-doc[class*="python-advanced_"]) .VPDocFooter {
+  --doc-course-color: #4f8f91;
+  --doc-course-color-soft: rgba(79, 143, 145, 0.14);
+  --doc-course-color-border: rgba(79, 143, 145, 0.34);
 }
 
 .VPDocFooter .prev-next {
@@ -355,6 +382,12 @@
   --doc-course-color: #a4b494;
   --doc-course-color-soft: rgba(164, 180, 148, 0.13);
   --doc-course-color-border: rgba(164, 180, 148, 0.34);
+}
+
+.dark .content-container:has(.vp-doc[class*="python-advanced_"]) .VPDocFooter {
+  --doc-course-color: #4f8f91;
+  --doc-course-color-soft: rgba(79, 143, 145, 0.13);
+  --doc-course-color-border: rgba(79, 143, 145, 0.34);
 }
 
 .dark .VPDocFooter .pager-link {

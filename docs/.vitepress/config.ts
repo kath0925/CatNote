@@ -75,6 +75,8 @@ export default withMermaid(defineConfig({
   themeConfig: {
     nav: [
       { text: "Software Engineering", link: "/software-engineering/" },
+      { text: "Computer Architecture", link: "/computer-architecture/" },
+      { text: "Python 进阶", link: "/python-advanced/" },
       { text: "Java", link: "/java/" },
       { text: "Mathematics", link: "/mathematics/" },
     ],
@@ -103,6 +105,45 @@ export default withMermaid(defineConfig({
             {
               text: markdownTitle("software-engineering/project-management.md", "Project Management"),
               link: "/software-engineering/project-management",
+            },
+          ],
+        },
+      ],
+      "/python-advanced/": [
+        {
+          text: "Python 进阶",
+          items: [
+            { text: "Overview", link: "/python-advanced/" },
+            {
+              text: markdownTitle("python-advanced/1_oop_basics.md", "面向对象编程基础"),
+              link: "/python-advanced/1_oop_basics",
+            },
+            {
+              text: markdownTitle("python-advanced/2_oop_advanced.md", "面向对象高级"),
+              link: "/python-advanced/2_oop_advanced",
+            },
+            {
+              text: markdownTitle("python-advanced/3_closure_decorator_copy.md", "Python闭包装饰器与深浅拷贝"),
+              link: "/python-advanced/3_closure_decorator_copy",
+            },
+            {
+              text: markdownTitle("python-advanced/markdown-appendix.md", "Markdown 快捷键与常用语法"),
+              link: "/python-advanced/markdown-appendix",
+            },
+          ],
+        },
+      ],
+      "/computer-architecture/": [
+        {
+          text: "Computer Architecture",
+          items: [
+            { text: "Overview", link: "/computer-architecture/" },
+            {
+              text: markdownTitle(
+                "computer-architecture/05-Hack-assembly-and-machine-code/05-Hack-assembly-and-machine-code.md",
+                "第五章 Hack汇编和机器码",
+              ),
+              link: "/computer-architecture/05-Hack-assembly-and-machine-code/05-Hack-assembly-and-machine-code",
             },
           ],
         },
