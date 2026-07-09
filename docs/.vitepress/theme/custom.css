@@ -56,6 +56,35 @@
   color: var(--doc-course-color);
 }
 
+.vp-doc h1:has(.chapter-copy-link) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.chapter-copy-link {
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  padding: 5px 10px;
+  color: var(--vp-c-text-2);
+  background: var(--vp-c-bg-soft);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 20px;
+  cursor: pointer;
+  transition:
+    border-color 0.2s,
+    color 0.2s,
+    background-color 0.2s;
+}
+
+.chapter-copy-link:hover {
+  border-color: var(--vp-c-text-2);
+  color: var(--vp-c-text-1);
+  background: var(--vp-c-bg);
+}
+
 .VPHome {
   --vp-home-hero-name-color: #2f2b27;
   --vp-home-hero-name-background: transparent;
@@ -204,71 +233,6 @@
   border-color: var(--course-color-border);
   background: #2d2c2a;
   box-shadow: 0 16px 38px rgba(0, 0, 0, 0.32);
-}
-
-.feedback-panel {
-  margin-top: 48px;
-  border-top: 1px solid var(--vp-c-divider);
-  padding-top: 24px;
-}
-
-.feedback-panel h2 {
-  border-top: 0;
-  margin: 0;
-  padding-top: 0;
-  font-size: 18px;
-  line-height: 28px;
-}
-
-.feedback-panel p {
-  margin: 8px 0 0;
-  color: var(--vp-c-text-2);
-  font-size: 14px;
-  line-height: 24px;
-}
-
-.feedback-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 16px;
-}
-
-.feedback-button {
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 8px;
-  padding: 7px 13px;
-  color: var(--vp-c-text-1);
-  background: var(--vp-c-bg);
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 22px;
-  transition:
-    border-color 0.2s,
-    color 0.2s,
-    background-color 0.2s;
-}
-
-.feedback-button:hover {
-  border-color: var(--vp-c-text-1);
-  color: var(--vp-c-text-1);
-  background: var(--vp-c-bg-soft);
-}
-
-.feedback-button.primary {
-  border-color: var(--vp-c-text-1);
-  color: var(--vp-c-white);
-  background: var(--vp-c-text-1);
-}
-
-.feedback-button.primary:hover {
-  border-color: var(--vp-c-text-2);
-  color: var(--vp-c-white);
-  background: var(--vp-c-text-2);
-}
-
-.dark .feedback-button.primary {
-  color: var(--vp-c-bg);
 }
 
 .comments-panel {
