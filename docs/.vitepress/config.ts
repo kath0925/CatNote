@@ -145,6 +145,10 @@ export default withMermaid(defineConfig({
               ),
               link: "/computer-architecture/05-Hack-assembly-and-machine-code/05-Hack-assembly-and-machine-code",
             },
+            {
+              text: markdownTitle("computer-architecture/07_The_Hack_ISA/07_The_Hack_ISA.md", "07. The Hack ISA"),
+              link: "/computer-architecture/07_The_Hack_ISA/07_The_Hack_ISA",
+            },
           ],
         },
       ],
