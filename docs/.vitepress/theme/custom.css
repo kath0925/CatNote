@@ -271,6 +271,32 @@
   color: var(--vp-c-bg);
 }
 
+.comments-panel {
+  margin-top: 40px;
+  border-top: 1px solid var(--vp-c-divider);
+  padding-top: 24px;
+}
+
+.comments-panel h2 {
+  border-top: 0;
+  margin: 0;
+  padding-top: 0;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.comments-panel p {
+  margin: 8px 0 0;
+  color: var(--vp-c-text-2);
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.comments-panel-frame {
+  margin-top: 16px;
+  min-height: 120px;
+}
+
 .hypothesis-panel {
   margin-top: 48px;
   border: 1px solid var(--doc-course-color-border, var(--vp-c-divider));
