@@ -44,6 +44,12 @@
   --doc-course-color: #4f8f91;
 }
 
+.vp-doc[class*="computer-architecture_"] img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .vp-doc h1 .heading-number,
 .vp-doc h2 .heading-number,
 .vp-doc h3 .heading-number {
