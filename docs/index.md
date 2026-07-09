@@ -3,8 +3,8 @@ layout: home
 
 hero:
   name: CatNote
-  text: 免费技术文档笔记站
-  tagline: 用清晰的中文解释技术课程重点，保留必要英文术语，帮助你快速复习和查漏补缺。
+  text: 从这里，到自由
+  tagline: 复习、考试、同好自留地。
   actions:
     - theme: brand
       text: 开始阅读
@@ -67,11 +67,11 @@ hero:
 
   <a class="course-card course-computer-architecture" href="/computer-architecture/">
     <div class="course-card-header">
-      <h2>Computer Architecture</h2>
+      <h2>Computer Architecture TB-2</h2>
     </div>
     <div class="course-card-body">
-      <span class="course-card-kicker">新增</span>
-      <p>Hack 汇编、机器码、fetch-execute cycle、跳转和内存映射 I/O 笔记。</p>
+      <span class="course-card-kicker">已更新</span>
+      <p>Hack汇编、机器码、fetch-execute cycle、跳转和内存映射I/O笔记。</p>
     </div>
   </a>
 </section>
