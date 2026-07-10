@@ -141,7 +141,7 @@ export default withMermaid(defineConfig({
             {
               text: markdownTitle(
                 "computer-architecture/05_hack_assembly_and_machine_code/05_hack_assembly_and_machine_code.md",
-                "05. Hack汇编和机器码",
+                "05. Hack Assembly and Machine Code",
               ),
               link: "/computer-architecture/05_hack_assembly_and_machine_code/05_hack_assembly_and_machine_code",
             },

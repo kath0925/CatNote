@@ -1,4 +1,4 @@
-# 05. Hack汇编和机器码
+# 05. Hack Assembly and Machine Code
 
 ## 5.1. The fetch-execute cycle
 
