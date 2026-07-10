@@ -140,14 +140,33 @@ export default withMermaid(defineConfig({
             { text: "Overview", link: "/computer-architecture/" },
             {
               text: markdownTitle(
-                "computer-architecture/05-Hack-assembly-and-machine-code/05-Hack-assembly-and-machine-code.md",
+                "computer-architecture/05_hack_assembly_and_machine_code/05_hack_assembly_and_machine_code.md",
                 "第五章 Hack汇编和机器码",
               ),
-              link: "/computer-architecture/05-Hack-assembly-and-machine-code/05-Hack-assembly-and-machine-code",
+              link: "/computer-architecture/05_hack_assembly_and_machine_code/05_hack_assembly_and_machine_code",
             },
             {
-              text: markdownTitle("computer-architecture/07_The_Hack_ISA/07_The_Hack_ISA.md", "07. The Hack ISA"),
-              link: "/computer-architecture/07_The_Hack_ISA/07_The_Hack_ISA",
+              text: markdownTitle("computer-architecture/07_the_hack_isa/07_the_hack_isa.md", "07. The Hack ISA"),
+              link: "/computer-architecture/07_the_hack_isa/07_the_hack_isa",
+            },
+            {
+              text: markdownTitle("computer-architecture/08_compiler_concepts/08_compiler_concepts.md", "08. Compiler concepts"),
+              link: "/computer-architecture/08_compiler_concepts/08_compiler_concepts",
+            },
+            {
+              text: markdownTitle("computer-architecture/09_hack_vm/09_hack_vm.md", "09. The Hack VM"),
+              link: "/computer-architecture/09_hack_vm/09_hack_vm",
+            },
+            {
+              text: markdownTitle(
+                "computer-architecture/10_function_calls_and_memory_management/10_function_calls_and_memory_management.md",
+                "10. Function Calls and Memory Management",
+              ),
+              link: "/computer-architecture/10_function_calls_and_memory_management/10_function_calls_and_memory_management",
+            },
+            {
+              text: markdownTitle("computer-architecture/11_jack/11_jack.md", "11. Jack"),
+              link: "/computer-architecture/11_jack/11_jack",
             },
           ],
         },
